@@ -1,36 +1,38 @@
+# docker-compose.yml
 version: '3.8'
 
 services:
   backend:
-    build: ./backend
-    container_name: insurance_backend
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/app
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql+asyncpg://user:password@db/insurance_db
     depends_on:
       - db
+    environment:
+      - DATABASE_URL = "postgresql+asyncpg://postgres:Abc@12345@localhost:5432/insurance_db"
+      - SECRET_KEY=your-secret-key
 
   frontend:
-    build: ./frontend
-    container_name: insurance_frontend
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend:/app
     ports:
       - "3000:3000"
-    depends_on:
-      - backend
 
   db:
-    image: postgres:15
-    container_name: insurance_db
-    restart: always
+    image: postgres:13
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
       POSTGRES_DB: insurance_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Abc@12345
+    volumes:
+      - db_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  db_data:
