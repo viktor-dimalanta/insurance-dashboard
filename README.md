@@ -104,6 +104,16 @@ The backend is containerized with Docker. You'll need to install Docker on your 
 
 ---
 
+### Create Tables in the Database
+
+Once the containers are up and running, you need to create the database tables. Run the following command to execute the create_tables.py script inside the backend container:
+
+  ```
+  docker-compose exec backend python create_tables.py
+  ```
+
+---
+
 ## Postman Endpoints
 
 Here are the API endpoints you can use with Postman to interact with the FastAPI backend.
