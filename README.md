@@ -45,7 +45,7 @@ The backend is containerized with Docker. You'll need to install Docker on your 
 
 1. Clone the repository:
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/viktor-dimalanta/insurance-dashboard
    cd backend
 
 2. Make sure your `docker-compose.yml` file is set up correctly in the backend directory.
