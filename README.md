@@ -178,6 +178,39 @@ Here are the API endpoints you can use with Postman to interact with the FastAPI
 
 ----
 
+# Areas for Improvement
+
+### Backend
+✅ Add Authentication: Currently, login is mocked. Implement JWT-based auth.
+
+✅ Add Pagination: For large datasets, paginate clients and quotes.
+
+✅ Unit Tests: Add automated tests using pytest for endpoints and models.
+
+✅ Validation: Add stricter validation for email, amount, etc.
+
+✅ Error Handling: Implement custom exception handlers for better error responses.
+
+✅ Environment Configs: Use .env files and pydantic.BaseSettings for clean configuration.
+
+### Frontend
+✅ Form Validation: Add proper validation using VeeValidate or Zod.
+
+✅ Notification System: Show toasts for success/failure actions.
+
+✅ Improved UI: Use a component library like Vuetify or Tailwind UI.
+
+✅ Authentication Flow: Replace mocked token with real login/logout + protected routes.
+
+### DevOps
+✅ Production Docker Setup: Add Dockerfile for production (multi-stage build).
+
+✅ CI/CD Pipeline: Add GitHub Actions or GitLab CI for auto testing and deployment.
+
+✅ Database Migrations: Introduce Alembic or use SQL-based version control.
+
+---
+
 ### License
 
 Developed by
