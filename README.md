@@ -1,4 +1,4 @@
-# Project Setup: FastAPI Backend and Nuxt 3 Frontend
+# Insurance Dashboard with FastAPI Backend and Nuxt 3 Frontend
 
 This project consists of a backend built with FastAPI and SQLAlchemy connected to a PostgreSQL database, and a frontend built with Nuxt 3. The backend provides API endpoints for managing clients and quotes, while the frontend allows users to interact with the backend.
 
