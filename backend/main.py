@@ -5,9 +5,13 @@ from sqlalchemy.future import select
 from pydantic import BaseModel
 from config import DATABASE_URL
 from models import Base
-from crud import get_clients, create_client, get_client_quotes
+from crud import get_clients, create_client, get_client_quotes,create_quote
 from auth import get_current_user, create_access_token
-
+from typing import List
+from models import Quote
+from schemas import QuoteOut
+import models
+import schemas
 app = FastAPI()
 
 # Database setup
@@ -27,7 +31,9 @@ class ClientCreate(BaseModel):
     email: str
 
 class QuoteCreate(BaseModel):
+    quote_text: str
     amount: int
+    client_id: int
 
 # Routes
 @app.get("/clients")
@@ -40,11 +46,20 @@ async def create_new_client(client: ClientCreate, db: AsyncSession = Depends(get
     new_client = await create_client(db, client.name, client.email)
     return new_client
 
-@app.get("/clients/{client_id}/quotes")
-async def get_quotes_for_client(client_id: int, db: AsyncSession = Depends(get_db), user: dict = Depends(get_current_user)):
-    quotes = await get_client_quotes(db, client_id)
+@app.get("/clients/{client_id}/quotes", response_model=List[QuoteOut])
+async def get_quotes_for_client(client_id: int, db: AsyncSession = Depends(get_db)):
+    result = await db.execute(select(Quote).where(Quote.client_id == client_id))
+    quotes = result.scalars().all()
     return quotes
 
+@app.post("/quotes", response_model=QuoteOut)
+async def create_quote_endpoint(
+    quote: QuoteCreate,
+    db: AsyncSession = Depends(get_db)
+):
+    db_quote = await create_quote(db=db, quote=quote)
+    return db_quote
+    
 # Generate an access token (mocking MSAL auth)
 @app.post("/token")
 async def generate_token(data: dict):

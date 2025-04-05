@@ -18,6 +18,7 @@ class Quote(Base):
     __tablename__ = "quotes"
 
     id = Column(Integer, primary_key=True, index=True)
+    quote_text = Column(String, nullable=True) 
     amount = Column(Integer)
     client_id = Column(Integer, ForeignKey("clients.id"))
 

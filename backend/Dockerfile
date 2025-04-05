@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the dependencies file and install them
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip install psycopg2-binary
 # Copy the rest of the application
 COPY . .
 
