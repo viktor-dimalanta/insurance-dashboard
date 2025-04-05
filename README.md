@@ -23,6 +23,12 @@ This project consists of two main parts:
 
 ---
 
+## Project Dashboard (Kanban)
+
+- Project Dashboard (https://github.com/users/viktor-dimalanta/projects/2/views/1)
+  
+---
+
 ## Project Setup
 
 The backend is implemented with FastAPI, SQLAlchemy, and PostgreSQL. It exposes REST API endpoints to interact with client data and quote records.
