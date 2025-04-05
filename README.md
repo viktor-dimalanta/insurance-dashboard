@@ -87,12 +87,9 @@ The backend is containerized with Docker. You'll need to install Docker on your 
 
    In the root directory (where the docker-compose.yml is located), run the following command to start the backend and frontend services:
    
-  ```bash
-
+    ```
     docker-compose up --build
-  ```
-
-
+    ```
 
   This command will build the Docker containers for both the backend and frontend services. Once the containers are up and running, you should be able to access:
 
@@ -101,9 +98,82 @@ The backend is containerized with Docker. You'll need to install Docker on your 
 
 ---
 
+### Postman Endpoints
+
+Here are the API endpoints you can use with Postman to interact with the FastAPI backend.
+
+1. Create a Client
+   
+   URL: POST /clients
+
+   ```
+    {
+      "name": "John Doe",
+      "email": "john@example.com"
+    }
+   ```
+
+3. List All Clients
+   
+   URL: GET /clients
+
+   ```
+    [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com"
+      }
+    ]
+   ```
+   
+4. Create a Quote
+   
+   URL: POST /quotes
+
+   ```
+    {
+      "amount": 500,
+      "client_id": 1
+    }
+   ```
+
+5. List All Quotes for a Client
+   
+   URL: GET /clients/{client_id}/quotes
+   
+   Example: GET /clients/1/quotes
+
+   ```
+    [
+      {
+        "id": 1,
+        "amount": 500,
+        "client_id": 1,
+        "quote_text": "Sample quote text"
+      }
+    ]
+   ```
+   
+6.  Get a Specific Quote
+   
+    URL: GET /quotes/{quote_id}
+    
+    Example: GET /quotes/1
+
+   ```
+    {
+      "id": 1,
+      "amount": 500,
+      "client_id": 1,
+      "quote_text": "Sample quote text"
+    }
+   ```
+
+----
+
 ### License
 
-    Developed by 
-    
-    Viktor Angelo Dimalanta, MSIT
-    https://www.linkedin.com/in/viktor-dimalanta-msit/
+Developed by
+
+Viktor Angelo Dimalanta, MSIT https://www.linkedin.com/in/viktor-dimalanta-msit/
