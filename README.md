@@ -104,7 +104,7 @@ The backend is containerized with Docker. You'll need to install Docker on your 
 
 ---
 
-### Postman Endpoints
+## Postman Endpoints
 
 Here are the API endpoints you can use with Postman to interact with the FastAPI backend.
 
@@ -178,7 +178,7 @@ Here are the API endpoints you can use with Postman to interact with the FastAPI
 
 ----
 
-# Areas for Improvement
+## Areas for Improvement
 
 ### Backend
 ✅ Add Authentication: Currently, login is mocked. Implement JWT-based auth.
