@@ -1,0 +1,13 @@
+{
+  "name": "nuxt3-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start"
+  },
+  "dependencies": {
+    "nuxt": "^3.10.0"
+  }
+}
