@@ -221,6 +221,17 @@ Here are the API endpoints you can use with Postman to interact with the FastAPI
 
 ---
 
+### Screenshots
+
+![image](https://github.com/user-attachments/assets/1c9ae354-c503-4145-b74c-080dbdc6303c)
+
+
+![image](https://github.com/user-attachments/assets/66acafe7-e6a1-4a3d-a8d2-e00031062da7)
+
+
+![image](https://github.com/user-attachments/assets/f59d31e1-370a-47e6-8f6e-ecca19bead56)
+
+
 ### License
 
 Developed by
