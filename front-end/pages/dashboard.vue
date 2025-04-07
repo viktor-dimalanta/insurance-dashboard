@@ -5,10 +5,7 @@
       </h1>
   
       <!-- Add Client Button -->
-      <button @click="showForm = !showForm"
-        style="background-color: #2563eb; color: #fff; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; margin-bottom: 20px;">
-        {{ showForm ? 'Cancel' : 'Add New Client' }}
-      </button>
+      <UButton color="neutral" variant="outline">Button</UButton>
   
       <!-- Add Client Form -->
       <div v-if="showForm" style="background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
