@@ -1,39 +1,47 @@
 <template>
-    <div class="p-6">
-      <h1 class="text-2xl font-bold mb-4">Clients & Quotes</h1>
+    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f8f8; padding: 30px;">
+      <h1 style="font-size: 28px; font-weight: 500; color: #333; margin-bottom: 30px; text-align: left;">
+        Clients & Quotes
+      </h1>
   
-      <!-- Loading state -->
-      <div v-if="loading" class="text-gray-500">Loading clients...</div>
+      <div v-if="loading" style="color: #777; font-style: italic;">
+        Loading clients...
+      </div>
   
-      <!-- No clients found -->
-      <div v-else-if="clients.length === 0" class="text-gray-500">No clients found...</div>
+      <div v-else-if="clients.length === 0" style="color: #777; font-style: italic;">
+        No clients found.
+      </div>
   
-      <!-- Display clients and their quotes -->
-      <div v-else>
-        <ul class="space-y-2">
-          <li
-            v-for="client in clients"
-            :key="client.id"
-            class="p-4 bg-white shadow rounded-md"
-          >
-            <p class="font-semibold">{{ client.name }} ({{ client.email }})</p>
-            
-            <!-- Displaying client quotes -->
-            <div v-if="client.quotes && client.quotes.length > 0">
-              <ul class="space-y-2 mt-2">
-                <li
-                  v-for="quote in client.quotes"
-                  :key="quote.id"
-                  class="p-2 bg-gray-50 rounded-md"
-                >
-                  <p class="text-sm font-semibold">{{ quote.quote_text }}</p>
-                  <p class="text-xs text-gray-500">Amount: {{ quote.amount }}</p>
-                </li>
-              </ul>
-            </div>
-            <div v-else class="text-sm text-gray-400">No quotes available</div>
-          </li>
-        </ul>
+      <div v-else style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); border-radius: 8px; overflow: hidden;">
+          <thead style="background-color: #f2f2f2;">
+            <tr>
+              <th style="padding: 15px; text-align: left; font-weight: 600; color: #555; border-bottom: 1px solid #ddd;">Client</th>
+              <th style="padding: 15px; text-align: left; font-weight: 600; color: #555; border-bottom: 1px solid #ddd;">Email</th>
+              <th style="padding: 15px; text-align: left; font-weight: 600; color: #555; border-bottom: 1px solid #ddd;">Quotes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="client in clients" :key="client.id" style="transition: background-color 0.2s ease;">
+              <td style="padding: 15px; color: #333;">
+                <div style="font-weight: 500;">{{ client.name }}</div>
+              </td>
+              <td style="padding: 15px; color: #777;">{{ client.email }}</td>
+              <td style="padding: 15px;">
+                <div v-if="client.quotes && client.quotes.length > 0">
+                  <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li v-for="quote in client.quotes" :key="quote.id"
+                      style="background-color: #f9f9f9; border-radius: 6px; padding: 10px; margin-bottom: 8px; border: 1px solid #eee;">
+                      <p style="font-size: 15px; font-weight: 500; color: #444; margin-bottom: 5px;">{{ quote.quote_text }}</p>
+                      <p style="font-size: 13px; color: #888;">Amount: <span style="font-weight: 600; color: #555;">{{ quote.amount }}</span></p>
+                    </li>
+                  </ul>
+                </div>
+                <div v-else style="color: #999; font-style: italic; font-size: 14px;">No quotes available</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </template>

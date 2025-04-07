@@ -1,20 +1,27 @@
 <template>
-    <div class="flex items-center justify-center min-h-screen">
-      <div class="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 class="text-2xl font-bold mb-6">Login</h2>
-        
+    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: #f4f4f4;">
+      <div style="background-color: #fff; padding: 32px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 384px;">
+        <h2 style="font-size: 24px; font-weight: bold; color: #333; margin-bottom: 24px; text-align: center;">Login</h2>
+  
         <form @submit.prevent="login">
-          <div class="mb-4">
-            <label for="email" class="block text-sm font-semibold">Email</label>
-            <input v-model="email" type="email" id="email" placeholder="Email" class="w-full p-2 border rounded" required />
+          <div style="margin-bottom: 16px;">
+            <label for="email" style="display: block; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 8px;">Email</label>
+            <input v-model="email" type="email" id="email" placeholder="Email"
+              style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; color: #333; outline: none;"
+              required />
           </div>
   
-          <div class="mb-6">
-            <label for="password" class="block text-sm font-semibold">Password</label>
-            <input v-model="password" type="password" id="password" placeholder="Password" class="w-full p-2 border rounded" required />
+          <div style="margin-bottom: 24px;">
+            <label for="password" style="display: block; font-size: 14px; font-weight: 600; color: #555; margin-bottom: 8px;">Password</label>
+            <input v-model="password" type="password" id="password" placeholder="Password"
+              style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; color: #333; outline: none;"
+              required />
           </div>
   
-          <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Login</button>
+          <button type="submit"
+            style="width: 100%; background-color: #007bff; color: #fff; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;">
+            Login
+          </button>
         </form>
       </div>
     </div>
