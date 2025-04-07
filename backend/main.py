@@ -10,9 +10,20 @@ from auth import get_current_user, create_access_token
 from typing import List
 from models import Quote
 from schemas import QuoteOut
+from fastapi.middleware.cors import CORSMiddleware
+
 import models
 import schemas
 app = FastAPI()
+
+# Set up CORS middleware to allow requests from localhost:3001
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3001"],  # The front-end URL
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 # Database setup
 engine = create_async_engine(DATABASE_URL, echo=True)
